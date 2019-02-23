@@ -712,19 +712,8 @@ namespace Assembly.Metro.Controls.PageTemplates.Games
 				{
 					if (tag == null || tag.Class != tagClass.RawClass) continue;
 
-                    string name;
-                    switch (_cacheFile.Engine)
-                    {
-                        case EngineType.FourthGeneration:
-                            FourthGenCacheFile cache_file = (FourthGenCacheFile)_cacheFile;
-                            //name = cache_file.Test((uint)tag.Class.Magic);
-                            name = "";
-                            break;
-                        default:
-                            name = _cacheFile.FileNames.GetTagName(tag);
-                            break;
-                    }
-					
+                    string name = _cacheFile.FileNames.GetTagName(tag);
+
 					if (name != null)
 						writer.WriteLine("{0}={1}", tag.Index, name);
 				}
